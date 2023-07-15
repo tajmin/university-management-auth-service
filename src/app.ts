@@ -1,5 +1,5 @@
 import cors from 'cors'
-import express, { Application, Request, Response } from 'express'
+import express, { Application, NextFunction, Request, Response } from 'express'
 import globalErrorHandler from './app/middlewares/globalErrorHandler'
 import { UserRoutes } from './app/modules/users/user.router'
 
@@ -20,8 +20,8 @@ app.use('/api/v1/users/', UserRoutes)
 //Error handling
 
 //Test
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World')
+app.get('/', async (req: Request, res: Response, next: NextFunction) => {
+  //throw new Error('Error Logger')
 })
 
 //Global error handler
